@@ -1,75 +1,102 @@
 import React from 'react'
 
-function ColdRolledSteelBackground() {
+function CoilAndSheetBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden bg-slate-950">
-      {/* Overhead industrial light glow */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-1/2" style={{
-        background: 'radial-gradient(80% 60% at 50% 0%, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.06) 35%, rgba(0,0,0,0.0) 70%)'
-      }} />
+      {/* Overhead soft industrial light */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-1/2"
+        style={{
+          background:
+            'radial-gradient(80% 60% at 50% 0%, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.06) 30%, rgba(0,0,0,0) 70%)',
+        }}
+      />
 
-      {/* Moving steel sheet (primary) */}
-      <div className="absolute -left-1/2 top-1/3 h-[46vh] w-[200vw] -rotate-1">
+      {/* Metallic sheet feed (subtle horizontal motion) */}
+      <div className="absolute left-[-30vw] top-[58%] h-[34vh] w-[160vw] -rotate-[1.2deg] opacity-[0.95]">
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 rounded-[8px]"
           style={{
             backgroundImage:
-              'linear-gradient(90deg, #cfd4da 0%, #9aa1a9 10%, #e6eaee 20%, #9aa1a9 32%, #c2c9d1 48%, #9aa1a9 62%, #e6eaee 78%, #9aa1a9 90%, #cfd4da 100%)',
-            backgroundSize: '200% 100%',
-            filter: 'saturate(0.9) contrast(1.05)',
-            animation: 'roll 12s linear infinite'
+              'linear-gradient(90deg, #cfd4da 0%, #a2a9b1 10%, #e8edf1 22%, #a2a9b1 34%, #c5ccd3 50%, #9aa1a9 64%, #e5eaee 78%, #9aa1a9 90%, #cfd4da 100%)',
+            backgroundSize: '180% 100%',
+            filter: 'saturate(0.9) contrast(1.04)',
+            boxShadow:
+              'inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -8px 24px rgba(0,0,0,0.25), 0 20px 60px rgba(0,0,0,0.35)',
+            animation: 'sheetFlow 28s linear infinite, specularSweep 12s linear infinite',
           }}
         />
         {/* Fine finish lines */}
         <div
-          className="absolute inset-0 opacity-40"
+          className="absolute inset-0 rounded-[8px] opacity-[0.38]"
           style={{
-            background: 'repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 2px, rgba(0,0,0,0) 2px, rgba(0,0,0,0) 6px)',
-            animation: 'roll 12s linear infinite'
+            background:
+              'repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 2px, rgba(0,0,0,0) 2px, rgba(0,0,0,0) 7px)',
+            animation: 'sheetFlow 28s linear infinite',
           }}
         />
-        {/* Soft highlight band */}
+        {/* Soft top highlight */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 rounded-[8px]"
           style={{
-            background: 'linear-gradient(180deg, rgba(255,255,255,0.25) 2%, rgba(255,255,255,0.05) 28%, rgba(0,0,0,0.06) 55%, rgba(0,0,0,0.12) 100%)',
+            background:
+              'linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 26%, rgba(0,0,0,0.10) 60%, rgba(0,0,0,0.18) 100%)',
             mixBlendMode: 'screen',
+            pointerEvents: 'none',
           }}
         />
       </div>
 
-      {/* Secondary sheet for depth */}
-      <div className="absolute -right-1/2 top-[58%] h-[38vh] w-[200vw] -rotate-2 opacity-80">
+      {/* Large cold-rolled steel coil with subtle rotation */}
+      <div className="absolute right-[-14vw] top-[8vh] h-[72vh] w-[72vh]">
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 rounded-full opacity-95"
           style={{
-            backgroundImage:
-              'linear-gradient(90deg, #bfc6cd 0%, #8f969e 12%, #dfe4e8 24%, #8f969e 36%, #b3bac2 50%, #8f969e 64%, #dfe4e8 80%, #8f969e 90%, #bfc6cd 100%)',
-            backgroundSize: '200% 100%',
+            background:
+              'radial-gradient(closest-side, #dbe1e6 0%, #b8c0c8 22%, #9aa1a9 40%, #cfd6dc 58%, #9aa1a9 74%, #bfc6cd 88%, #eef2f5 100%)',
             filter: 'saturate(0.9) contrast(1.05)',
-            animation: 'roll 18s linear infinite'
+            animation: 'coilRotate 90s linear infinite',
+            boxShadow:
+              'inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -30px 60px rgba(0,0,0,0.35), 0 30px 80px rgba(0,0,0,0.45)',
           }}
         />
+        {/* Coil slit lines (give sense of layers) */}
         <div
-          className="absolute inset-0 opacity-35"
+          className="absolute inset-0 rounded-full opacity-45"
           style={{
-            background: 'repeating-linear-gradient(90deg, rgba(255,255,255,0.055) 0px, rgba(255,255,255,0.055) 2px, rgba(0,0,0,0) 2px, rgba(0,0,0,0) 7px)',
-            animation: 'roll 18s linear infinite'
+            background:
+              'repeating-radial-gradient(circle at 50% 50%, rgba(0,0,0,0.07) 0px, rgba(0,0,0,0.07) 2px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 10px)',
+            mixBlendMode: 'multiply',
+            animation: 'coilRotate 90s linear infinite reverse',
+          }}
+        />
+        {/* Inner shadow to suggest hollow core */}
+        <div
+          className="absolute inset-0 rounded-full"
+          style={{
+            background:
+              'radial-gradient(closest-side, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.28) 10%, rgba(0,0,0,0) 26%)',
+            transform: 'scale(0.28)',
+            filter: 'blur(0.2px)',
+            pointerEvents: 'none',
           }}
         />
       </div>
 
-      {/* Ambient mist for depth */}
-      <div className="pointer-events-none absolute inset-0" style={{
-        background: 'radial-gradient(50% 40% at 50% 60%, rgba(226,232,240,0.06) 0%, rgba(226,232,240,0.0) 70%)'
-      }} />
+      {/* Ambient depth haze */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(50% 40% at 52% 62%, rgba(226,232,240,0.05) 0%, rgba(226,232,240,0.0) 70%)',
+        }}
+      />
 
-      {/* Keyframes for rolling motion */}
+      {/* Keyframes */}
       <style>{`
-        @keyframes roll {
-          0% { background-position: 0% 0; }
-          100% { background-position: -200% 0; }
-        }
+        @keyframes sheetFlow { 0% { transform: translateX(0); } 100% { transform: translateX(-20vw); } }
+        @keyframes specularSweep { 0% { background-position: 0% 0; } 100% { background-position: -180% 0; } }
+        @keyframes coilRotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
       `}</style>
     </div>
   )
@@ -78,8 +105,8 @@ function ColdRolledSteelBackground() {
 function App() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-slate-950 text-white">
-      {/* Realistic cold rolled steel background replacing gear imagery */}
-      <ColdRolledSteelBackground />
+      {/* Clean, realistic cold-rolled steel visuals */}
+      <CoilAndSheetBackground />
 
       {/* Subtle dark overlay for contrast + soft vignette */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/50 to-slate-950/80" />
@@ -138,7 +165,7 @@ function App() {
         </div>
       </section>
 
-      {/* Subtle moving steel accent bar at bottom to hint processing motion */}
+      {/* Subtle moving steel accent bar at bottom */}
       <div className="pointer-events-none relative z-10">
         <div className="absolute bottom-0 left-0 right-0 h-1.5 animate-pulse bg-gradient-to-r from-slate-200/20 via-slate-100/50 to-slate-200/20" />
       </div>
