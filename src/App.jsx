@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CoilAndSheetBackground() {
+function CoilThroughRollersBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden bg-slate-950">
       {/* Overhead soft industrial light */}
@@ -12,27 +12,27 @@ function CoilAndSheetBackground() {
         }}
       />
 
-      {/* Metallic sheet feed (subtle horizontal motion) */}
-      <div className="absolute left-[-30vw] top-[58%] h-[34vh] w-[160vw] -rotate-[1.2deg] opacity-[0.95]">
+      {/* Feeding sheet path (from coil through rollers) */}
+      <div className="absolute left-[-35vw] top-[56%] h-[28vh] w-[200vw] -rotate-[1.2deg] opacity-[0.96]">
         <div
           className="absolute inset-0 rounded-[8px]"
           style={{
             backgroundImage:
-              'linear-gradient(90deg, #cfd4da 0%, #a2a9b1 10%, #e8edf1 22%, #a2a9b1 34%, #c5ccd3 50%, #9aa1a9 64%, #e5eaee 78%, #9aa1a9 90%, #cfd4da 100%)',
+              'linear-gradient(90deg, #dadfe4 0%, #a9b0b8 12%, #eef2f5 24%, #a6adb5 36%, #cdd3d9 52%, #99a1a9 66%, #e8edf1 80%, #9aa1a9 92%, #cfd4da 100%)',
             backgroundSize: '180% 100%',
             filter: 'saturate(0.9) contrast(1.04)',
             boxShadow:
-              'inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -8px 24px rgba(0,0,0,0.25), 0 20px 60px rgba(0,0,0,0.35)',
-            animation: 'sheetFlow 28s linear infinite, specularSweep 12s linear infinite',
+              'inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -8px 24px rgba(0,0,0,0.25), 0 20px 60px rgba(0,0,0,0.35)',
+            animation: 'sheetFlow 26s linear infinite, specularSweep 12s linear infinite',
           }}
         />
         {/* Fine finish lines */}
         <div
-          className="absolute inset-0 rounded-[8px] opacity-[0.38]"
+          className="absolute inset-0 rounded-[8px] opacity-[0.35]"
           style={{
             background:
               'repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 2px, rgba(0,0,0,0) 2px, rgba(0,0,0,0) 7px)',
-            animation: 'sheetFlow 28s linear infinite',
+            animation: 'sheetFlow 26s linear infinite',
           }}
         />
         {/* Soft top highlight */}
@@ -40,37 +40,58 @@ function CoilAndSheetBackground() {
           className="absolute inset-0 rounded-[8px]"
           style={{
             background:
-              'linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 26%, rgba(0,0,0,0.10) 60%, rgba(0,0,0,0.18) 100%)',
+              'linear-gradient(180deg, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.08) 26%, rgba(0,0,0,0.10) 60%, rgba(0,0,0,0.18) 100%)',
             mixBlendMode: 'screen',
             pointerEvents: 'none',
           }}
         />
       </div>
 
-      {/* Large cold-rolled steel coil with subtle rotation */}
-      <div className="absolute right-[-14vw] top-[8vh] h-[72vh] w-[72vh]">
+      {/* Roller assembly */}
+      <div className="absolute left-[34%] top-[46%] h-[24vh] w-[24vh] -translate-x-1/2 -translate-y-1/2">
+        {/* Upper Roller */}
+        <div className="absolute left-1/2 top-0 h-[24vh] w-[24vh] -translate-x-1/2 -translate-y-[44%]">
+          <Roller />
+        </div>
+        {/* Lower Roller */}
+        <div className="absolute left-1/2 bottom-0 h-[24vh] w-[24vh] -translate-x-1/2 translate-y-[44%]">
+          <Roller reverse />
+        </div>
+        {/* Throat shadow between rollers */}
+        <div
+          className="absolute left-1/2 top-1/2 h-6 w-[40vh] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            background:
+              'radial-gradient(60% 120% at 50% 50%, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0) 80%)',
+            filter: 'blur(6px)',
+          }}
+        />
+      </div>
+
+      {/* Large cold-rolled steel coil (feeder) */}
+      <div className="absolute left-[-10vw] top-[18vh] h-[72vh] w-[72vh]">
         <div
           className="absolute inset-0 rounded-full opacity-95"
           style={{
             background:
-              'radial-gradient(closest-side, #dbe1e6 0%, #b8c0c8 22%, #9aa1a9 40%, #cfd6dc 58%, #9aa1a9 74%, #bfc6cd 88%, #eef2f5 100%)',
+              'radial-gradient(closest-side, #e3e8ed 0%, #b7c0c8 22%, #96a0a8 40%, #cbd2d8 58%, #99a1a9 74%, #bfc6cd 88%, #eff3f6 100%)',
             filter: 'saturate(0.9) contrast(1.05)',
-            animation: 'coilRotate 90s linear infinite',
+            animation: 'coilRotate 70s linear infinite',
             boxShadow:
               'inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -30px 60px rgba(0,0,0,0.35), 0 30px 80px rgba(0,0,0,0.45)',
           }}
         />
-        {/* Coil slit lines (give sense of layers) */}
+        {/* Coil slit lines (layering) */}
         <div
           className="absolute inset-0 rounded-full opacity-45"
           style={{
             background:
               'repeating-radial-gradient(circle at 50% 50%, rgba(0,0,0,0.07) 0px, rgba(0,0,0,0.07) 2px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 10px)',
             mixBlendMode: 'multiply',
-            animation: 'coilRotate 90s linear infinite reverse',
+            animation: 'coilRotate 70s linear infinite reverse',
           }}
         />
-        {/* Inner shadow to suggest hollow core */}
+        {/* Hollow core */}
         <div
           className="absolute inset-0 rounded-full"
           style={{
@@ -94,10 +115,49 @@ function CoilAndSheetBackground() {
 
       {/* Keyframes */}
       <style>{`
-        @keyframes sheetFlow { 0% { transform: translateX(0); } 100% { transform: translateX(-20vw); } }
+        @keyframes sheetFlow { 0% { transform: translateX(0); } 100% { transform: translateX(-22vw); } }
         @keyframes specularSweep { 0% { background-position: 0% 0; } 100% { background-position: -180% 0; } }
         @keyframes coilRotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
+        @keyframes rollerRotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
       `}</style>
+    </div>
+  )
+}
+
+function Roller({ reverse = false }) {
+  return (
+    <div className="relative h-full w-full">
+      {/* Roller body */}
+      <div
+        className="absolute inset-0 rounded-full"
+        style={{
+          background:
+            'radial-gradient(closest-side, #bfc6cd 0%, #9aa1a9 45%, #cfd6dc 70%, #a3abb3 85%, #e6ebef 100%)',
+          boxShadow:
+            'inset 0 2px 4px rgba(255,255,255,0.5), inset 0 -10px 30px rgba(0,0,0,0.35), 0 20px 60px rgba(0,0,0,0.35)',
+          animation: `rollerRotate 6s linear infinite ${reverse ? 'reverse' : ''}`,
+          filter: 'saturate(0.9) contrast(1.05)',
+        }}
+      />
+      {/* Machining grooves */}
+      <div
+        className="absolute inset-0 rounded-full opacity-50"
+        style={{
+          background:
+            'repeating-radial-gradient(circle at 50% 50%, rgba(0,0,0,0.10) 0px, rgba(0,0,0,0.10) 2px, rgba(255,255,255,0) 3px, rgba(255,255,255,0) 10px)',
+          mixBlendMode: 'multiply',
+          animation: `rollerRotate 6s linear infinite ${reverse ? '' : 'reverse'}`,
+        }}
+      />
+      {/* Axle cap */}
+      <div
+        className="absolute left-1/2 top-1/2 h-[18%] w-[18%] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{
+          background:
+            'radial-gradient(circle at 30% 30%, #f5f8fb 0%, #c9d0d6 35%, #8f98a1 70%)',
+          boxShadow: 'inset 0 1px 2px rgba(255,255,255,0.6), 0 2px 8px rgba(0,0,0,0.4)',
+        }}
+      />
     </div>
   )
 }
@@ -105,8 +165,8 @@ function CoilAndSheetBackground() {
 function App() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-slate-950 text-white">
-      {/* Clean, realistic cold-rolled steel visuals */}
-      <CoilAndSheetBackground />
+      {/* Realistic coil feeding through rollers (no sparks) */}
+      <CoilThroughRollersBackground />
 
       {/* Subtle dark overlay for contrast + soft vignette */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/50 to-slate-950/80" />
@@ -157,7 +217,7 @@ function App() {
               <span className="text-lg">⚙️</span>
               <span className="text-sm md:text-base">72-Hour Dispatch Guarantee</span>
             </li>
-            <li className="flex items-start gap-2 rounded-md bg-slate-900/50 p-3 ring-1 ring-inset ring-slate-700/50 sm:col-span-2">
+            <li className="flex items-start gap-2 rounded-md bg-slate-900/50 p-3 ring-1 inset-0 ring-slate-700/50 sm:col-span-2">
               <span className="text-lg">🚛</span>
               <span className="text-sm md:text-base">Pan-India Distribution Network</span>
             </li>
