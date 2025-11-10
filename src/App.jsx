@@ -1,13 +1,85 @@
 import React from 'react'
-import Spline from '@splinetool/react-spline'
+
+function ColdRolledSteelBackground() {
+  return (
+    <div className="absolute inset-0 overflow-hidden bg-slate-950">
+      {/* Overhead industrial light glow */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-1/2" style={{
+        background: 'radial-gradient(80% 60% at 50% 0%, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.06) 35%, rgba(0,0,0,0.0) 70%)'
+      }} />
+
+      {/* Moving steel sheet (primary) */}
+      <div className="absolute -left-1/2 top-1/3 h-[46vh] w-[200vw] -rotate-1">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(90deg, #cfd4da 0%, #9aa1a9 10%, #e6eaee 20%, #9aa1a9 32%, #c2c9d1 48%, #9aa1a9 62%, #e6eaee 78%, #9aa1a9 90%, #cfd4da 100%)',
+            backgroundSize: '200% 100%',
+            filter: 'saturate(0.9) contrast(1.05)',
+            animation: 'roll 12s linear infinite'
+          }}
+        />
+        {/* Fine finish lines */}
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            background: 'repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 2px, rgba(0,0,0,0) 2px, rgba(0,0,0,0) 6px)',
+            animation: 'roll 12s linear infinite'
+          }}
+        />
+        {/* Soft highlight band */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.25) 2%, rgba(255,255,255,0.05) 28%, rgba(0,0,0,0.06) 55%, rgba(0,0,0,0.12) 100%)',
+            mixBlendMode: 'screen',
+          }}
+        />
+      </div>
+
+      {/* Secondary sheet for depth */}
+      <div className="absolute -right-1/2 top-[58%] h-[38vh] w-[200vw] -rotate-2 opacity-80">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(90deg, #bfc6cd 0%, #8f969e 12%, #dfe4e8 24%, #8f969e 36%, #b3bac2 50%, #8f969e 64%, #dfe4e8 80%, #8f969e 90%, #bfc6cd 100%)',
+            backgroundSize: '200% 100%',
+            filter: 'saturate(0.9) contrast(1.05)',
+            animation: 'roll 18s linear infinite'
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-35"
+          style={{
+            background: 'repeating-linear-gradient(90deg, rgba(255,255,255,0.055) 0px, rgba(255,255,255,0.055) 2px, rgba(0,0,0,0) 2px, rgba(0,0,0,0) 7px)',
+            animation: 'roll 18s linear infinite'
+          }}
+        />
+      </div>
+
+      {/* Ambient mist for depth */}
+      <div className="pointer-events-none absolute inset-0" style={{
+        background: 'radial-gradient(50% 40% at 50% 60%, rgba(226,232,240,0.06) 0%, rgba(226,232,240,0.0) 70%)'
+      }} />
+
+      {/* Keyframes for rolling motion */}
+      <style>{`
+        @keyframes roll {
+          0% { background-position: 0% 0; }
+          100% { background-position: -200% 0; }
+        }
+      `}</style>
+    </div>
+  )
+}
 
 function App() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-slate-950 text-white">
-      {/* 3D Engineering Background */}
-      <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/tu1yYfmgsnYCLUIx/scene.splinecode" style={{ width: '100%', height: '100%' }} />
-      </div>
+      {/* Realistic cold rolled steel background replacing gear imagery */}
+      <ColdRolledSteelBackground />
 
       {/* Subtle dark overlay for contrast + soft vignette */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/50 to-slate-950/80" />
