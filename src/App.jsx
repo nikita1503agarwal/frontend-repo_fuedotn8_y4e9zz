@@ -142,7 +142,7 @@ function DeliveryScene() {
         <div className="absolute inset-0" style={{
           background: 'repeating-linear-gradient(90deg, rgba(255,255,255,0.12) 0 10px, rgba(255,255,255,0.0) 10px 80px)',
           mixBlendMode: 'screen',
-          animation: 'roadSlide 6s linear infinite',
+          animation: 'roadSlide 12s linear infinite',
         }} />
       </div>
 
@@ -239,7 +239,7 @@ function Wheel({ className = '' }) {
     <div className={`absolute bottom-0 h-[9vh] w-[9vh] ${className}`}>
       <div className="absolute inset-0 rounded-full" style={{ background: 'radial-gradient(circle at 40% 35%, #222 0%, #0a0a0a 70%)', boxShadow: 'inset 0 -4px 10px rgba(0,0,0,0.6), 0 8px 24px rgba(0,0,0,0.6)' }} />
       <div className="absolute inset-[16%] rounded-full" style={{ background: 'radial-gradient(circle at 40% 35%, #666 0%, #2b2b2b 70%)' }} />
-      <div className="absolute inset-[36%] rounded-full" style={{ background: 'radial-gradient(circle at 50% 50%, #999 0%, #555 100%)', animation: 'wheelSpin 3s linear infinite' }} />
+      <div className="absolute inset-[36%] rounded-full" style={{ background: 'radial-gradient(circle at 50% 50%, #999 0%, #555 100%)', animation: 'wheelSpin 8s linear infinite' }} />
     </div>
   )
 }
